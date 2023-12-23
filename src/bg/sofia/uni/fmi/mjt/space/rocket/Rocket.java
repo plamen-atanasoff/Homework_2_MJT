@@ -23,7 +23,7 @@ public record Rocket(String id, String name, Optional<String> wiki, Optional<Dou
 
         Optional<Double> height;
         if (tokens.length == dataMembersCount) {
-            int trailingLength = 3;
+            int trailingLength = 2;
             int heightWithoutTrailingInd = tokens[heightPos].length() - trailingLength;
             String heightFormatted = tokens[heightPos].substring(0, heightWithoutTrailingInd);
             height = Optional.of(Double.parseDouble(heightFormatted));

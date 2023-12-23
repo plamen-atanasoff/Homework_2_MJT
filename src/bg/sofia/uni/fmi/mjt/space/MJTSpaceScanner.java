@@ -14,7 +14,6 @@ import java.io.Reader;
 import java.io.UncheckedIOException;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -23,9 +22,9 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MJTSpaceScanner implements SpaceScannerAPI {
-    private final Set<Mission> missions;
-    private final Set<Rocket> rockets;
-    private final SecretKey secretKey;
+    private Set<Mission> missions;
+    private Set<Rocket> rockets;
+    private SecretKey secretKey;
 
     private <T> Set<T> readLines(Reader entitiesReader, Function<String, T> func) {
         try (BufferedReader reader = new BufferedReader(entitiesReader)) {

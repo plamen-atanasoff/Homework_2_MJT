@@ -30,17 +30,28 @@ public record Mission(String id, String company, String location, LocalDate date
         Detail detail = Detail.of(tokens[detailPos]);
 
         RocketStatus rocketStatus = Arrays.stream(RocketStatus.values())
-            .filter(str -> tokens[rocketStatusPos].equals(str.toString()))
-            .findFirst()
+            .filter(rs -> tokens[rocketStatusPos].equals(rs.toString()))
+            .findAny()
             .get();
 
-        Optional<Double> cost = tokens[costPos].isEmpty() ? Optional.empty()
-            : Optional.of(Double.parseDouble(tokens[costPos].substring(1, tokens[costPos].length() - 1)));
+        Optional<Double> cost;
+        if (tokens[costPos].isEmpty()) {
+            cost = Optional.empty();
+        } else {
+            StringBuilder costFormatted = new StringBuilder(tokens[costPos]);
+            costFormatted
+                .deleteCharAt(0)
+                .deleteCharAt(costFormatted.length() - 1);
+            int indexOfComma;
+            if ((indexOfComma = costFormatted.indexOf(",")) != -1) {
+                costFormatted.deleteCharAt(indexOfComma);
+            }
+            cost = Optional.of(Double.parseDouble(costFormatted.toString()));
+        }
 
-        int missionStatusFormatted = tokens[missionStatusPos].length() - 1;
         MissionStatus missionStatus = Arrays.stream(MissionStatus.values())
-            .filter(str -> tokens[missionStatusPos].substring(0, missionStatusFormatted).equals(str.toString()))
-            .findFirst()
+            .filter(ms -> tokens[missionStatusPos].equals(ms.toString()))
+            .findAny()
             .get();
 
         return new Mission(tokens[idPos], tokens[companyPos], locationFormatted,

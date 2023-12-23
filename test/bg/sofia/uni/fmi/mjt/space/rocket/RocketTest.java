@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class RocketTest {
     @Test
     void testOfInitializesRocketCorrectly() {
-        String line = "0,Tsyklon-3,https://en.wikipedia.org/wiki/Tsyklon-3,39.0 m\n";
+        String line = "0,Tsyklon-3,https://en.wikipedia.org/wiki/Tsyklon-3,39.0 m";
 
         Rocket rocket = Rocket.of(line);
 
@@ -20,7 +20,7 @@ public class RocketTest {
 
     @Test
     void testOfInitializesRocketCorrectlyWithoutWikiAndHeight() {
-        String line = "0,Tsyklon-3,,\n";
+        String line = "0,Tsyklon-3,,";
 
         Rocket rocket = Rocket.of(line);
 
@@ -32,7 +32,7 @@ public class RocketTest {
 
     @Test
     void testOfInitializesRocketCorrectlyWithoutWiki() {
-        String line = "0,Tsyklon-3,,39.0 m\n";
+        String line = "0,Tsyklon-3,,39.0 m";
 
         Rocket rocket = Rocket.of(line);
 
@@ -44,7 +44,7 @@ public class RocketTest {
 
     @Test
     void testOfInitializesRocketCorrectlyWithoutHeight() {
-        String line = "0,Tsyklon-3,https://en.wikipedia.org/wiki/Tsyklon-3,\n";
+        String line = "0,Tsyklon-3,https://en.wikipedia.org/wiki/Tsyklon-3,";
 
         Rocket rocket = Rocket.of(line);
 
