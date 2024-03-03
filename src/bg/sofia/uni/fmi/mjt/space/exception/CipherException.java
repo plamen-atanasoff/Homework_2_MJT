@@ -1,11 +1,11 @@
 package bg.sofia.uni.fmi.mjt.space.exception;
 
 public class CipherException extends Exception {
-    CipherException(String message) {
+    public CipherException(String message) {
         super(message);
     }
 
-    CipherException(String message, Throwable cause) {
+    public CipherException(String message, Throwable cause) {
         super(message, cause);
     }
 }
