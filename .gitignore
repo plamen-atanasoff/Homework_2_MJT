@@ -27,5 +27,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/all-missions-from-1957.csv
-/all-rockets-from-1957.csv
+/files/all-missions-from-1957.csv
+/files/all-rockets-from-1957.csv
